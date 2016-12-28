@@ -1,0 +1,26 @@
+
+docker_add_repository: true
+docker_yum_packages: docker-engine
+docker_service_name: docker
+
+lvm_thinpools:
+  - name: thinpool
+    volume_group: docker
+    physical_volumes:
+      - /dev/disk/by-id/ata-VIRTUAL_docker
+    metadata_size: "1%VG"
+    data_size: "90%VG"
+    #  metadata size Pool_LV_size / Pool_LV_chunk_size * 64b.
+
+
+docker_config_files:
+  - name: /etc/docker/daemon.json
+    content: |
+      {
+        "storage-driver": "devicemapper",
+         "storage-opts": [
+           "dm.thinpooldev=/dev/mapper/docker-thinpool",
+           "dm.use_deferred_removal=true",
+           "dm.use_deferred_deletion=true"
+         ]  
+      }

@@ -1,0 +1,13 @@
+---
+- name: Setup docker nodes
+  hosts: docker-nodes
+  tags: docker
+  pre_tasks:
+    - name: "Create /etc/docker"
+      file:
+        dest: /etc/docker/
+        state: directory
+
+  roles:
+    - role: VerosK.lvm-thinpool
+    - role: VerosK.docker

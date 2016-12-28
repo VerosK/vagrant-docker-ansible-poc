@@ -1,0 +1,4 @@
+
+docker_add_repository: true
+docker_yum_packages: docker-engine
+docker_service_name: docker

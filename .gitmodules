@@ -1,0 +1,6 @@
+[submodule "roles/VerosK.docker"]
+	path = roles/VerosK.docker
+	url = https://github.com/VerosK/ansible-role-docker
+[submodule "roles/VerosK.lvm-thinpool"]
+	path = roles/VerosK.lvm-thinpool
+	url = https://github.com/VerosK/ansible-lvm-thinpool

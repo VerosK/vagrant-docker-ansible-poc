@@ -14,7 +14,7 @@ VIRTUAL_MACHINES = {
 }
 
 def connect_storage(vb, machine_id, label, vdi_filename, port_id,
-                    size=16*1024)  # 4GB default
+                    size=16*1024)  # 16GB default
     unless File.exist? vdi_filename
         vb.customize [
                 'storagectl', :id, '--name', 'SATA',
